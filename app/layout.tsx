@@ -17,9 +17,8 @@ const geistMono = localFont({
 });
 
 // 공유에 사용하는 대표 도메인. og:image 절대 URL의 기준이 된다.
-// Vercel이 자동 생성하는 도메인(portfolio-ten-delta-....vercel.app)이 아니라
-// 실제로 공유하는 주소로 고정한다.
-const siteUrl = "https://portfolio-minyoungcompany.vercel.app";
+// Vercel이 자동 생성하는 도메인이 아니라 실제로 공유하는 주소로 고정한다.
+const siteUrl = "https://minyoung-ux-portfolio.vercel.app";
 
 export const metadata: Metadata = {
   title: "김민영 | UX 기획 포트폴리오",
