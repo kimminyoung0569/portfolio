@@ -16,11 +16,10 @@ const geistMono = localFont({
   display: "swap",
 });
 
-// 배포된 도메인을 자동으로 따라가도록 한다.
-// Vercel 프로덕션이면 그 프로젝트의 도메인, 아니면 아래 기본값을 쓴다.
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "https://portfolio-minyoungcompany.vercel.app";
+// 공유에 사용하는 대표 도메인. og:image 절대 URL의 기준이 된다.
+// Vercel이 자동 생성하는 도메인(portfolio-ten-delta-....vercel.app)이 아니라
+// 실제로 공유하는 주소로 고정한다.
+const siteUrl = "https://portfolio-minyoungcompany.vercel.app";
 
 export const metadata: Metadata = {
   title: "김민영 | UX 기획 포트폴리오",
