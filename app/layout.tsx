@@ -20,7 +20,7 @@ const geistMono = localFont({
 // Vercel 프로덕션이면 그 프로젝트의 도메인, 아니면 아래 기본값을 쓴다.
 const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "https://minyoung-ux-portfolio.vercel.app";
+  : "https://portfolio-minyoungcompany.vercel.app";
 
 export const metadata: Metadata = {
   title: "김민영 | UX 기획 포트폴리오",
