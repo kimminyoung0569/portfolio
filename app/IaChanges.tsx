@@ -76,6 +76,22 @@ const CHANGES: Change[] = [
   },
 ];
 
+function Chevron() {
+  return (
+    <span className="iac-chev" aria-hidden="true">
+      <svg viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M1.5 2 6 6.5 10.5 2"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
 function Arrow() {
   return (
     <div className="iac-arrow" aria-hidden="true">
@@ -102,11 +118,14 @@ export default function IaChanges() {
 
       <div className="iac-grid">
         {CHANGES.map((c) => (
-          <article className="iac-card" key={c.no}>
-            <div className="iac-title">
+          // 모바일에서는 제목 줄을 눌러 접고 펼친다(기본 접힘).
+          // 데스크톱에서는 CSS로 항상 펼친 상태로 고정한다.
+          <details className="iac-card" key={c.no}>
+            <summary className="iac-title">
               <span className="iac-no">{c.no}</span>
               <h5>{c.title}</h5>
-            </div>
+              <Chevron />
+            </summary>
 
             <dl className="iac-meta">
               <div>
@@ -156,7 +175,7 @@ export default function IaChanges() {
                 <span className="iac-tag is-after">{c.after.tag}</span>
               </div>
             </div>
-          </article>
+          </details>
         ))}
       </div>
     </div>

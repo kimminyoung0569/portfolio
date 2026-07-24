@@ -378,6 +378,25 @@ footer > span { justify-self: end; font-size: .58rem; color: #77766f; letter-spa
 .iac-no { flex: none; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--coral); color: #181817; font-family: var(--font-geist-mono), monospace; font-size: .68rem; font-weight: 800; }
 .iac-title h5 { margin: 0; font-size: 1.02rem; line-height: 1.3; letter-spacing: -.025em; color: #f4f3ed; font-weight: 600; word-break: keep-all; }
 
+/* 카드 접기: 접히는 쪽이 기본값이다. 데스크톱에서 항상 펼치는 건 ::details-content 에
+   의존하므로, 미지원 브라우저에서도 최소한 눌러서 펼칠 수 있게 남겨둔다. */
+.iac-card > summary { list-style: none; cursor: pointer; margin-bottom: 0; -webkit-tap-highlight-color: transparent; }
+.iac-card > summary::-webkit-details-marker { display: none; }
+.iac-card[open] > summary { margin-bottom: .9rem; }
+.iac-card > summary:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; border-radius: 3px; }
+.iac-chev { display: block; flex: none; margin-left: auto; color: #aaa9a4; transition: transform .18s ease; }
+.iac-chev svg { width: 12px; height: 8px; display: block; }
+.iac-card[open] > summary .iac-chev { transform: rotate(180deg); }
+
+/* 데스크톱: 항상 펼친 상태로 고정하고 접기 UI를 없앤다 */
+@media (min-width: 901px) {
+  @supports selector(::details-content) {
+    .iac-card::details-content { content-visibility: visible; block-size: auto; overflow: visible; }
+    .iac-card > summary { cursor: default; pointer-events: none; margin-bottom: .9rem; }
+    .iac-chev { display: none; }
+  }
+}
+
 .iac-meta { margin: 0 0 1.15rem; display: grid; gap: .45rem; }
 .iac-meta > div { display: grid; grid-template-columns: 34px 1fr; gap: .5rem; align-items: start; }
 .iac-meta dt { font-size: .64rem; font-weight: 800; letter-spacing: .06em; padding-top: .15rem; }
